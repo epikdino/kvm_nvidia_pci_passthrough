@@ -1,0 +1,7 @@
+#!/bin/bash
+FILE=/etc/libvirt/hooks/qemu.d/$1/$2_$3.sh
+if [ -x ${FILE} ]; then
+	${FILE} >> /var/log/libvirt/qemu/hook.log
+else
+	echo "${FILE} not executable" >> /var/log/libvirt/qemu/hook.log
+fi
